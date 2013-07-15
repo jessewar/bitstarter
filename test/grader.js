@@ -42,33 +42,33 @@ var cheerioHtmlFile = function(htmlfile) {
     return cheerio.load(fs.readFileSync(htmlfile));
 };
 
-var loadHtmlFromUrl = function(url, checksfile) {
-   rest.get(url).on('complete', function(data) {
-       $ = cheerio.load(data);
-       var checks = loadChecks(checksfile).sort();
-       var out = {};
-       for (var ii in checks) {
-	   var present = $(checks[ii]).length > 0;
-	   out[checks[ii]] = present;
-       }
-       var outJson = JSON.stringify(out, null, 4);
-       console.log(outJson);
-    });
-};
-
 var loadChecks = function(checksfile) {
     return JSON.parse(fs.readFileSync(checksfile));
 };
 
-var checkHtmlFile = function(htmlfile, checksfile) {
+var loadHtmlFromUrl = function(url, checksfile) {
+   rest.get(url).on('complete', function(data) {
+       $ = cheerio.load(data);
+       checkAgainstFile(checksfile);
+    });
+};
+
+var loadHtmlFromFile = function(htmlfile, checksfile) {
     $ = cheerioHtmlFile(htmlfile);
+    checkAgainstFile(checksfile);
+};
+
+var checkAgainstFile = function(checksfile) {
     var checks = loadChecks(checksfile).sort();
     var out = {};
     for(var ii in checks) {
-	var present = $(checks[ii]).length > 0;
-	out[checks[ii]] = present;
+	var present = $(checks[ii]).length > 0;  // true if attribute is present false if not
+	out[checks[ii]] = present;  // build array with attribute-boolean pairs
     }
-    return out;
+
+    // Make in JSON string format and print to console
+    var outJson = JSON.stringify(out, null, 4);
+    console.log(outJson);
 };
 
 var clone = function(fn) {
@@ -83,8 +83,11 @@ if(require.main == module) {
 	.option('-c, --checks <check_file>', 'Path to checks.json', clone(assertFileExists), CHECKSFILE_DEFAULT)
 	.option('-u, --url <url>', 'URL to bitstarter')
 	.parse(process.argv);
-
-    loadHtmlFromUrl(program.url, program.checks);
+    if (program.url) {
+	loadHtmlFromUrl(program.url, program.checks);
+    } else {
+	loadHtmlFromFile(program.file, program.checks);
+    }
 } else {
     exports.checkHtmlFile = checkHtmlFile;
 }
