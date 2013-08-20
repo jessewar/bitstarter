@@ -1,0 +1,31 @@
+      /* To push content below navbar */
+      @media (min-width: 980px) {
+        body {
+          margin-top: 41px;
+        }
+      }
+      
+      body {
+          background: url('http://3.bp.blogspot.com/_MfsZp6tveUs/TDEvKeA6DWI/AAAAAAAACTA/x2g6aKKGwgw/s320/blue-sky-1600.jpg') no-repeat center center fixed;
+          background-size: cover;
+      }
+      
+      /* To center main content area within the body */
+      #main-content {
+          background: url('http://farm5.staticflickr.com/4139/4802261769_dbe6beeca8_o.jpg');
+          
+          height: 120em;
+          width: 40em;
+          margin-top: -18px; /* Close gap at top of container */
+          margin-left: auto;
+          margin-right: auto;
+      }
+      
+      .brand
+      {
+          position: absolute;
+          width: 100%;
+          left: 0;
+          text-align: center;
+          margin: auto;
+      }
