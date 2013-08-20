@@ -8,12 +8,15 @@ var str = buffer.toString();
 var contentBuffer = fs.readFileSync("content-page.html");
 var contentStr = contentBuffer.toString();
 
-app.configure(function(){app.use(express.static(__dirname + '/public'));});
+// load anything in the /public directory as static content on the server
+app.use(express.static(__dirname + '/public'));
 
+// load home page
 app.get('/', function(request, response) {
   response.send(str);
 });
 
+// load content page
 app.get('/content', function(request, response) {
     response.send(contentStr);
 });
