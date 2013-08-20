@@ -8,6 +8,8 @@ var str = buffer.toString();
 var contentBuffer = fs.readFileSync("content-page.html");
 var contentStr = contentBuffer.toString();
 
+app.configure(function(){app.use(express.static(__dirname + '/public'));});
+
 app.get('/', function(request, response) {
   response.send(str);
 });
@@ -15,7 +17,6 @@ app.get('/', function(request, response) {
 app.get('/content', function(request, response) {
     response.send(contentStr);
 });
-
 
 var port = process.env.PORT || 8080;
 app.listen(port, function() {
