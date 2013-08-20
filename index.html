@@ -8,8 +8,11 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Le styles -->
-<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
-<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+
+    <!-- bootstrapCND resources -->
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+
     <link href="./assets/css/bootstrap.css" rel="stylesheet">
     <style>
       body { padding-top: 60px; /* 60px to make the container go all the way
@@ -28,220 +31,263 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
 
+    <!-- load my CSS page -->
     <link rel="stylesheet" type="text/css" href="/css/home-css.css">
 
   </head>
   <body>
     <div class="navbar-wrapper">
-    	<div class="container">
-    		<div class="navbar navbar-inverse">
-    			<div class="navbar-inner">
-    				<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-    					<span class="icon-bar"></span>
-    					<span class="icon-bar"></span>
-    					<span class="icon-bar"></span>
-    				</button>
-    				<a class="brand" href="#">Project name</a>
-    				<div class="nav-collapse collapse">
-    					<ul class="nav">
-    						<li class="active">
-    							<a href="#">Home</a>
-    						</li>
-    						<li>
-    							<a href="#about">About</a>
-    						</li>
-    						<li>
-    							<a href="#contact">Contact</a>
-    						</li>
-    						<li class="dropdown">
-    							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-    							<ul class="dropdown-menu">
-    								<li>
-    									<a href="#">Action</a>
-    								</li>
-    								<li>
-    									<a href="#">Another action</a>
-    								</li>
-    								<li>
-    									<a href="#">Something else here</a>
-    								</li>
-    								<li class="divider">
-    								</li>
-    								<li class="nav-header">
-    									Nav header
-    								</li>
-    								<li>
-    									<a href="#">Separated link</a>
-    								</li>
-    								<li>
-    									<a href="#">One more separated link</a>
-    								</li>
-    							</ul>
-    						</li>
-    					</ul>
-    				</div>
-    			</div>
-    		</div>
-    	</div>
+      <div class="container">
+        <div class="navbar navbar-inverse">
+          <div class="navbar-inner">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar">
+              </span>
+              <span class="icon-bar">
+              </span>
+              <span class="icon-bar">
+              </span>
+            </button>
+            <a class="brand" href="#">
+              Project name
+            </a>
+            <div class="nav-collapse collapse">
+              <ul class="nav">
+                <li class="active">
+                  <a href="#">
+                    Home
+                  </a>
+                </li>
+                <li>
+                  <a href="#about">
+                    About
+                  </a>
+                </li>
+                <li>
+                  <a href="#contact">
+                    Contact
+                  </a>
+                </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    Dropdown
+                    <b class="caret">
+                    </b>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <a href="#">
+                        Action
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        Another action
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        Something else here
+                      </a>
+                    </li>
+                    <li class="divider">
+                    </li>
+                    <li class="nav-header">
+                      Nav header
+                    </li>
+                    <li>
+                      <a href="#">
+                        Separated link
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        One more separated link
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <div id="myCarousel" class="carousel slide" data-pause="remove">
-    	<div class="carousel-inner">
-    		<div class="item active" style="background-image: url('https://s3.amazonaws.com/jetstrap-site/images/builder/templates/cta_image1.jpg')">
-    			<div class="container">
-    				<div class="carousel-caption">
-    					<h1>
-    						Example headline.
-    					</h1>
-    					<p class="lead">
-    						Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id
-    						elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies
-    						vehicula ut id elit.
-    					</p>
-    					<a class="btn btn-large btn-primary" href="/content">Start Exploring</a>
-    				</div>
-    			</div>
-    		</div>
-    		<div class="item" style="background-image: url('https://s3.amazonaws.com/jetstrap-site/images/builder/templates/cta_image2.jpg')">
-    			<div class="container">
-    				<div class="carousel-caption">
-    					<h1>
-    						Another example headline.
-    					</h1>
-    					<p class="lead">
-    						Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id
-    						elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies
-    						vehicula ut id elit.
-    					</p>
-    					<a class="btn btn-large btn-primary" href="#">Learn more</a>
-    				</div>
-    			</div>
-    		</div>
-    		<div class="item" style="background-image: url('https://s3.amazonaws.com/jetstrap-site/images/builder/templates/cta_image3.jpg')">
-    			<div class="container">
-    				<div class="carousel-caption">
-    					<h1>
-    						One more for good measure.
-    					</h1>
-    					<p class="lead">
-    						Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id
-    						elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies
-    						vehicula ut id elit.
-    					</p>
-    					<a class="btn btn-large btn-primary" href="#">Browse gallery</a>
-    				</div>
-    			</div>
-    		</div>
-    	</div>
-    	<a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
-    	<a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
+      <div class="carousel-inner">
+        <div class="item active" style="background-image: url('https://s3.amazonaws.com/jetstrap-site/images/builder/templates/cta_image1.jpg')">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>
+                Example headline.
+              </h1>
+              <p class="lead">
+                Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id
+                elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies
+                vehicula ut id elit.
+              </p>
+              <a class="btn btn-large btn-primary" href="screen-8e27f62354.html">
+                Start Exploring
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="item" style="background-image: url('https://s3.amazonaws.com/jetstrap-site/images/builder/templates/cta_image2.jpg')">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>
+                Another example headline.
+              </h1>
+              <p class="lead">
+                Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id
+                elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies
+                vehicula ut id elit.
+              </p>
+              <a class="btn btn-large btn-primary" href="#">
+                Learn more
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="item" style="background-image: url('https://s3.amazonaws.com/jetstrap-site/images/builder/templates/cta_image3.jpg')">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>
+                One more for good measure.
+              </h1>
+              <p class="lead">
+                Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id
+                elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies
+                vehicula ut id elit.
+              </p>
+              <a class="btn btn-large btn-primary" href="#">
+                Browse gallery
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+	<
+      </a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next">
+	>
+      </a>
     </div>
     <!-- START steps section -->
     <div class="row">
-    	<!-- START step 1 -->
-    	<div class="span3 offset1" id="steps">
-    		<img class="img-circle" data-src="holder.js/140x140">
-    		<h2 class="text-center">
-   			1
-   		</h2> 
-   		<p id="step-description">
-    			Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam
-    			id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta
-    			ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna, vel
-    			scelerisque nisl consectetur et.
-    		</p>
-    	</div>
-    	<!-- ARROW -->
-    	<div class="span1" id="arrow">
-    		<img src="http://www.angyalmagustanoda.com/wp-content/uploads/arrow-right.png">
-    	</div>
-    	<!-- START step 2 -->
-    	<div class="span3" id="steps">
-    		<img class="img-circle" data-src="holder.js/140x140">
-    		<h2 class="text-center">
-    			2
-    		</h2>
-    		<p id="step-description">
-    			Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget
-    			lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum.
-    			Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
-    			ut fermentum massa justo sit amet risus.
-    		</p>
-    	</div>
-    	<div class="span1" id="arrow">
-    		<img src="http://www.angyalmagustanoda.com/wp-content/uploads/arrow-right.png">
-    	</div>
-    	<!-- START step 3 -->
-    	<div class="span3" id="steps">
-    		<img class="img-circle" data-src="holder.js/140x140">
-    		<h2 class="text-center">
-    			3
-    		</h2>
-    		<p id="step-description">
-    			Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas
-    			eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus,
-    			tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum
-    			massa justo sit amet risus.
-    		</p>
-    	</div>
+      <!-- START step 1 -->
+      <div class="span3 offset1" id="steps">
+        <img class="img-circle" data-src="holder.js/140x140">
+        <h2 class="text-center">
+          1
+        </h2>
+        <p id="step-description">
+          Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam
+          id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta
+          ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna, vel
+          scelerisque nisl consectetur et.
+        </p>
+      </div>
+      <!-- ARROW -->
+      <div class="span1" id="arrow">
+        <img src="http://www.angyalmagustanoda.com/wp-content/uploads/arrow-right.png">
+      </div>
+      <!-- START step 2 -->
+      <div class="span3" id="steps">
+        <img class="img-circle" data-src="holder.js/140x140">
+        <h2 class="text-center">
+          2
+        </h2>
+        <p id="step-description">
+          Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget
+          lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum.
+          Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
+          ut fermentum massa justo sit amet risus.
+        </p>
+      </div>
+      <div class="span1" id="arrow">
+        <img src="http://www.angyalmagustanoda.com/wp-content/uploads/arrow-right.png">
+      </div>
+      <!-- START step 3 -->
+      <div class="span3" id="steps">
+        <img class="img-circle" data-src="holder.js/140x140">
+        <h2 class="text-center">
+          3
+        </h2>
+        <p id="step-description">
+          Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas
+          eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus,
+          tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum
+          massa justo sit amet risus.
+        </p>
+      </div>
     </div>
     <!-- END steps section -->
     <div class="container marketing">
-    	<hr class="featurette-divider">
-    	<div class="featurette">
-    		<h2 class="featurette-heading">
-    			First featurette headling.
-    			<span class="muted">It'll blow your mind.</span>
-    		</h2>
-    		<p class="lead">
-    			Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula
-    			porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque
-    			nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
-    		</p>
-    	</div>
-    	<hr class="featurette-divider">
-    	<div class="featurette">
-    		<h2 class="featurette-heading">
-    			Oh yeah, it's that good.
-    			<span class="muted">See for yourself.</span>
-    		</h2>
-    		<p class="lead">
-    			Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula
-    			porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque
-    			nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
-    		</p>
-    	</div>
-    	<hr class="featurette-divider">
-    	<div class="featurette">
-    		<h2 class="featurette-heading">
-    			And lastly, this one.
-    			<span class="muted">Checkmate.</span>
-    		</h2>
-    		<p class="lead">
-    			Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula
-    			porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque
-    			nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
-    		</p>
-    	</div>
-    	<hr class="featurette-divider">
-    	<footer>
-    		<p class="pull-right">
-    			<a href="#">Back to top</a>
-    		</p>
-    		<p>
-    			© 2013 Company, Inc. ·
-    			<a href="#">Privacy</a>
-    			·
-    			<a href="#">Terms</a>
-    		</p>
-    	</footer>
+      <hr class="featurette-divider">
+      <div class="featurette">
+        <h2 class="featurette-heading">
+          First featurette headling.
+          <span class="muted">
+            It'll blow your mind.
+          </span>
+        </h2>
+        <p class="lead">
+          Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula
+          porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque
+          nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
+        </p>
+      </div>
+      <hr class="featurette-divider">
+      <div class="featurette">
+        <h2 class="featurette-heading">
+          Oh yeah, it's that good.
+          <span class="muted">
+            See for yourself.
+          </span>
+        </h2>
+        <p class="lead">
+          Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula
+          porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque
+          nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
+        </p>
+      </div>
+      <hr class="featurette-divider">
+      <div class="featurette">
+        <h2 class="featurette-heading">
+          And lastly, this one.
+          <span class="muted">
+            Checkmate.
+          </span>
+        </h2>
+        <p class="lead">
+          Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula
+          porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque
+          nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
+        </p>
+      </div>
+      <hr class="featurette-divider">
+      <footer>
+        <p class="pull-right">
+          <a href="#">
+            Back to top
+          </a>
+        </p>
+	  2013 Company Inc.
+          <a href="#">
+            Privacy
+          </a>
+	    *
+          <a href="#">
+            Terms
+          </a>
+        </p>
+      </footer>
     </div>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
     </script>
-    <script src="./assets/js/bootstrap.js">
-    </script>
-    <script>
-
+    <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js">
     </script>
   </body>
 </html>
