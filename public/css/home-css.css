@@ -1,3 +1,11 @@
+/* MY MODIFICATIONS */
+
+/* center the share buttons */
+div.addthis_toolbox {
+  width:280px;
+  margin: 0 auto;
+}
+
 /* GLOBAL STYLES
 -------------------------------------------------- */
 /* Lighter body text */
@@ -256,3 +264,4 @@ body {
     line-height: 1.5;
   }
 }
+
