@@ -20,10 +20,10 @@
     <!-- START navbar -->
     <div class="navbar-wrapper">
       <div class="container">
-        <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar navbar-inverse fixed-top navbar-fixed-top">
           <div class="navbar-inner">
 
-	    <!-- START mobile navbar button -->
+	    <!-- mobile navbar button -->
             <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
               <span class="icon-bar">
               </span>
@@ -32,9 +32,9 @@
               <span class="icon-bar">
               </span>
             </button>
-            <div class="nav-collapse collapse">
-	    <!-- END mobile navbar button -->
 
+	    <!-- navbar buttons -->
+            <div class="nav-collapse collapse">
               <ul class="nav">
 		<li class="active nav-button">
 		  <a href="#">
@@ -57,8 +57,8 @@
                   </a>
                 </li>
               </ul>
-
             </div>
+
           </div>
         </div>
       </div>
@@ -69,20 +69,23 @@
     <div id="myCarousel" class="carousel slide" data-pause="remove">
       <div class="carousel-inner">
 
-          <div class="container" id="home-text">
-            <div class="carousel-caption">
-              <h1>Washington is home to hundreds of families that practice safe and sustainable farming</h1>
-              <p class="lead">
-		Learn about the philosophy and practices behind what makes their products
-		the very best.
-              </p>
-              <a class="btn btn-large btn-primary" href="/content">
-                Start Exploring
-              </a>
-            </div>
-          </div>	
-        <div class="item active" style="background-image:url('http://msutoday.msu.edu/_/img/assets/2013/farm-3.jpg')">
+	<!-- carousel text area -->
+	<div class="container" id="carousel-text">
+	  <div class="carousel-caption">
+	    <h1>Washington is home to hundreds of families that practice safe and sustainable farming</h1>
+	    <p class="lead">
+	      Learn about the philosophy and practices that make their products
+	      the very best.
+	    </p>
+	    <a class="btn btn-large btn-primary" href="/content">
+	      Start Exploring
+	    </a>
+	  </div>
+	</div>	
 
+	<!-- first slide -->
+        <div class="item active" style="background-image:url('http://msutoday.msu.edu/_/img/assets/2013/farm-3.jpg')">
+	  <!-- farm description area -->
 	  <div class="farm-text">
 	    <a href="http://oldsilvanacreamery.com/">
 	      <p class="farm-name">Old Silvana Creamery</p>
@@ -91,59 +94,33 @@
 	    </a>
 	  </div>
         </div>
-
+	
+	<!-- second slide -->
         <div class="item" style="background-image: url('https://s3.amazonaws.com/jetstrap-site/images/builder/templates/cta_image2.jpg')">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>
-                Another example headline.
-              </h1>
-              <p class="lead">
-                Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id
-                elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies
-                vehicula ut id elit.
-              </p>
-              <a class="btn btn-large btn-primary" href="#">
-                Learn more
-              </a>
-            </div>
-          </div>
         </div>
+
+	<!-- third slide -->
         <div class="item" style="background-image: url('https://s3.amazonaws.com/jetstrap-site/images/builder/templates/cta_image3.jpg')">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>
-                One more for good measure.
-              </h1>
-              <p class="lead">
-                Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id
-                elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies
-                vehicula ut id elit.
-              </p>
-              <a class="btn btn-large btn-primary" href="#">
-                Browse gallery
-              </a>
-            </div>
-          </div>
         </div>
       </div>
+
+      <!-- carousel buttons -->
       <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-	<
+	&lsaquo;
       </a>
       <a class="right carousel-control" href="#myCarousel" data-slide="next">
-	>
+	&rsaquo;
       </a>
     </div>
     <!-- END carousel -->
 
     <!-- START steps section -->
     <div class="row">
-      <!-- START step 1 -->
+
+      <!-- step 1 -->
       <div class="span3 offset1" id="steps">
         <img class="img-circle" data-src="holder.js/140x140">
-        <h2 class="text-center">
-          1
-        </h2>
+        <h2 class="text-center">1</h2>
         <p id="step-description">
           Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam
           id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta
@@ -151,16 +128,16 @@
           scelerisque nisl consectetur et.
         </p>
       </div>
-      <!-- ARROW -->
+
+      <!-- arrow -->
       <div class="span1" id="arrow">
         <img src="http://www.angyalmagustanoda.com/wp-content/uploads/arrow-right.png">
       </div>
-      <!-- START step 2 -->
+
+      <!-- step 2 -->
       <div class="span3" id="steps">
         <img class="img-circle" data-src="holder.js/140x140">
-        <h2 class="text-center">
-          2
-        </h2>
+        <h2 class="text-center">2</h2>
         <p id="step-description">
           Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget
           lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum.
@@ -168,16 +145,16 @@
           ut fermentum massa justo sit amet risus.
         </p>
       </div>
-      <!-- ARROW -->
+
+      <!-- arrow -->
       <div class="span1" id="arrow">
         <img src="http://www.angyalmagustanoda.com/wp-content/uploads/arrow-right.png">
       </div>
-      <!-- START step 3 -->
+
+      <!-- step 3 -->
       <div class="span3" id="steps">
         <img class="img-circle" data-src="holder.js/140x140">
-        <h2 class="text-center">
-          3
-        </h2>
+        <h2 class="text-center">3</h2>
         <p id="step-description">
           Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas
           eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus,
@@ -220,9 +197,8 @@
       </div>
       <hr class="featurette-divider">
       <div class="featurette"  id="social-section">
-        <h2 class="featurette-heading text-center">
-          Tell your friends :)
-        </h2>
+        <h2 class="featurette-heading text-center">Tell your friends :)</h2>
+
 	<!-- START AddThis Button -->
 	<div class="addthis_toolbox addthis_default_style addthis_32x32_style">
 	  <a class="addthis_button_preferred_1"></a>

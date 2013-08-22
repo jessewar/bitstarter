@@ -2,8 +2,9 @@
 /* MY MODIFICATIONS */
 /* ================================================== */
 
-#home-text {
-    z-index: 2;
+/* get carousel text be positioned above carousel images */
+#carousel-text {
+    z-index: 2; /* also works with "z-index: 1" */
     position: absolute;
 }
 
@@ -44,8 +45,6 @@ div.addthis_toolbox {
 
 body {
   color: #5a5a5a;
-
-  padding-top: 60px;  /* 60px to make the container go all the way to the bottom of the topbar */
 }
 
 
@@ -114,11 +113,6 @@ body {
 /* Carousel base class */
 .carousel {
   margin-bottom: 60px;
-}
-
-.carousel .container {
-  position: relative;
-  z-index: 9;
 }
 
 .carousel-control {
