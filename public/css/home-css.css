@@ -1,4 +1,31 @@
+/* ================================================== */
 /* MY MODIFICATIONS */
+/* ================================================== */
+
+/* ================================================== */
+/* FARM DESCRIPTION (bottom right carousel) */
+/* ================================================== */
+
+/* position the carousel farm description in the bottom right of carousel */
+.farm-text {
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
+}
+
+.farm-name {
+    font-size: large;
+    font-weight: bold;    
+    color: wheat;
+}
+
+.farm-location {
+    color: wheat;
+}
+
+/* ================================================== */
+/* SHARE BUTTONS */
+/* ================================================== */
 
 /* center the share buttons */
 div.addthis_toolbox {
@@ -113,7 +140,7 @@ body {
   position: static;
   max-width: 550px;
   padding: 0 20px;
-  margin-top: 200px;
+  margin-top: 90px; /* Changed from 200px to accomodate new text */
 }
 
 .carousel-caption h1,
