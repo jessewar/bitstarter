@@ -6,6 +6,7 @@
 #carousel-text {
     z-index: 2; /* also works with "z-index: 1" */
     position: absolute;
+    margin-left: 50px;
 }
 
 /* ================================================== */
