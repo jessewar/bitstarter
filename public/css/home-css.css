@@ -14,10 +14,11 @@
 /* ================================================== */
 
 /* position the carousel farm description in the bottom right of carousel */
-.farm-text {
+.farm-description {
     position: absolute;
     right: 20px;
     bottom: 10px;
+    width: 250px; /* So farm name fits on one line */
 }
 
 .farm-name {
@@ -123,7 +124,7 @@ body {
   text-shadow: 0 1px 1px rgba(0,0,0,.4);
   background-color: transparent;
   border: 0;
-  z-index: 10;
+  z-index: 8;
 }
 
 .carousel .item {
@@ -180,24 +181,6 @@ body {
 
 .featurette-divider {
   margin: 80px 0; /* Space out the Bootstrap <hr> more */
-}
-
-.featurette {
-  padding-top: 120px; /* Vertically center images part 1: add padding above and below text. */
-  overflow: hidden; /* Vertically center images part 2: clear their floats. */
-}
-
-.featurette-image {
-  margin-top: -120px; /* Vertically center images part 3: negative margin up the image the same amount of the padding to center it. */
-}
-
-/* Give some space on the sides of the floated elements so text doesn't run right into it. */
-.featurette-image.pull-left {
-  margin-right: 40px;
-}
-
-.featurette-image.pull-right {
-  margin-left: 40px;
 }
 
 /* Thin out the marketing headings */
