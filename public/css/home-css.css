@@ -1,15 +1,4 @@
 /* ================================================== */
-/* MY MODIFICATIONS */
-/* ================================================== */
-
-/* get carousel text be positioned above carousel images */
-#carousel-text {
-    z-index: 2; /* also works with "z-index: 1" */
-    position: absolute;
-    margin-left: 50px;
-}
-
-/* ================================================== */
 /* FARM DESCRIPTION (bottom right carousel) */
 /* ================================================== */
 
@@ -31,6 +20,7 @@
     color: wheat;
 }
 
+
 /* ================================================== */
 /* SHARE BUTTONS */
 /* ================================================== */
@@ -41,34 +31,20 @@ div.addthis_toolbox {
   margin: 0 auto;
 }
 
-/* GLOBAL STYLES
--------------------------------------------------- */
-/* Lighter body text */
 
+/* ================================================== */
+/* GLOBAL STYLES */
+/* ================================================== */
+
+/* Lighter body text */
 body {
   color: #5a5a5a;
 }
 
 
-/* Get arrows to be centered between steps */
-#arrow {
-    margin-top: 120px;
-}
-
-
-#steps {
-    background-color: #D3D3D3; /* Light grey */
-}
-
-#step-description {
-    margin-left: 20px;
-    margin-right: 20px;
-}
-
-
-
-/* CUSTOMIZE THE NAVBAR
--------------------------------------------------- */
+/* ================================================== */
+/* CUSTOMIZE THE NAVBAR */
+/* ================================================== */
 
 /* Special class on .container surrounding .navbar, used for positioning it into place. */
 .navbar-wrapper {
@@ -108,9 +84,9 @@ body {
 }
 
 
-
-/* CUSTOMIZE THE CAROUSEL
--------------------------------------------------- */
+/* ================================================== */
+/* CUSTOMIZE THE CAROUSEL */
+/* ================================================== */
 
 /* Carousel base class */
 .carousel {
@@ -156,28 +132,25 @@ body {
   margin-top: 10px;
 }
 
-
-
-/* MARKETING CONTENT
--------------------------------------------------- */
-
-/* Center align the text within the three columns below the carousel */
-.marketing .span4 {
-  text-align: center;
+/* get carousel text be positioned above carousel images */
+#carousel-text {
+    z-index: 2; /* also works with "z-index: 1" */
+    position: absolute;
+    margin-left: 50px;
 }
+
+
+/* ================================================== */
+/* MARKETING CONTENT */
+/* ================================================== */
 
 .marketing h2 {
   font-weight: normal;
 }
 
-.marketing .span4 p {
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-
-/* Featurettes
-------------------------- */
+/* ================================================== */
+/* Featurettes */
+/* ================================================== */
 
 .featurette-divider {
   margin: 80px 0; /* Space out the Bootstrap <hr> more */
@@ -192,9 +165,9 @@ body {
 }
 
 
-
-/* RESPONSIVE CSS
--------------------------------------------------- */
+/* ================================================== */
+/* RESPONSIVE CSS */
+/* ================================================== */
 
 @media (max-width: 979px) {
 
@@ -259,10 +232,6 @@ body {
   .carousel-caption .lead,
   .carousel-caption .btn {
     font-size: 18px;
-  }
-
-  .marketing .span4 + .span4 {
-    margin-top: 40px;
   }
 
   .featurette-heading {

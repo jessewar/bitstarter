@@ -119,6 +119,7 @@
     
     <!-- START marketing section -->
     <div class="container marketing">
+      <!-- featurette 1 -->
       <div class="featurette" id="about-section">
         <h2 class="featurette-heading">
           First featurette headling.
@@ -133,6 +134,8 @@
         </p>
       </div>
       <hr class="featurette-divider">
+
+      <!-- featurette 2 -->
       <div class="featurette" id="contact-section">
         <h2 class="featurette-heading">
           Oh yeah, it's that good.
@@ -147,6 +150,8 @@
         </p>
       </div>
       <hr class="featurette-divider">
+
+      <!-- featurette 3 -->
       <div class="featurette"  id="social-section">
         <h2 class="featurette-heading text-center">Tell your friends :)</h2>
 
@@ -186,25 +191,12 @@
     </div>
     
     <!-- load files necessary for couresel buttons to work -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
-    </script>
-    <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js">
-    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
 
-    <script>
-      $(document).ready(function() {
-        buttonClick();
-      });
-      
-      // Changes navbar buttons when pressed
-      // TODO: fix navbar disappearing issue for chrome
-      var buttonClick = function() {
-        $('.nav-button').on('click', function() {
-          $('.nav-button.active').removeClass('active'); // find active button and turn inactive
-          $(this).addClass('active');
-        });
-      };
-    </script>
+    <!-- load my own .js files -->
+    <script src="/js/home-js.js"></script>
 
   </body>
 </html>
+
