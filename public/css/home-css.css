@@ -140,12 +140,13 @@ body {
 
 
 /* ================================================== */
-/* FARM AREA */
+/* FEATURED FARM AREA */
 /* ================================================== */
 
 /* container for each featured farm */
 .featured-farm {
   width: 100%;
+  display: block;
 }
 
 .image-holder {
@@ -157,6 +158,26 @@ body {
   -webkit-background-size: cover;
 }
 
+.description-holder {
+    background-color: rgb(235, 235, 235);
+}
+
+.featured-description {
+  padding: 10px 0;
+}
+
+.learn-button {
+  background-color: rgb(248,248,248);
+  height: 80px;
+  line-height: 80px; /* set equal to the height for vertical centering of text */
+  color: black;
+  letter-spacing: 2px;
+  font-size: 15px;
+}
+
+.learn-button-text {
+  margin: auto 0;
+}
 
 /* ================================================== */
 /* MARKETING CONTENT */
@@ -170,6 +191,15 @@ body {
 /* Featurettes */
 /* ================================================== */
 
+/* fixes issue of navbar covering content when href brings you there */
+.featurette::before {
+  display: block; 
+  content: " "; 
+  margin-top: -50px; /* height of the navbar */
+  height: 50px;      /* height of the navbar, change if navbar height changes */
+  visibility: hidden;
+}
+
 .featurette-divider {
   margin: 80px 0; /* Space out the Bootstrap <hr> more */
 }
@@ -181,7 +211,6 @@ body {
   line-height: 1;
   letter-spacing: -1px;
 }
-
 
 /* ================================================== */
 /* RESPONSIVE CSS */
