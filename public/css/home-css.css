@@ -104,11 +104,13 @@ body {
 
 .carousel .item {
   height: 600px; /* Changed from 500px */
-  background-position: center top;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; /* scale image to cover full size of carousel area */
   -moz-background-size: cover;
   -webkit-background-size: cover;
+  background-attachment: fixed; /* specifies images do not scroll with the page */
+  background-position-x: 50%;  /* start image at its center */
+  background-position-y: 50%;  /* changed from "center top" */
 }
 
 .carousel-caption {
@@ -149,17 +151,21 @@ body {
   display: block;
 }
 
+/* background images in featured farm area */
 .image-holder {
   height: 400px;
-  background-position: center top;
   background-repeat: no-repeat;
   background-size: cover;
   -moz-background-size: cover;
   -webkit-background-size: cover;
+  background-attachment: fixed; /* specifies images do not scroll with the page */
+  background-position-x: 50%;  /* start image at its center */
+  background-position-y: 50%;  /* changed from "center top" */
 }
 
+/* row below each featured farm image */
 .description-holder {
-    background-color: rgb(235, 235, 235);
+  background-color: rgb(235, 235, 235);
 }
 
 .featured-description {
@@ -175,9 +181,6 @@ body {
   font-size: 15px;
 }
 
-.learn-button-text {
-  margin: auto 0;
-}
 
 /* ================================================== */
 /* MARKETING CONTENT */
