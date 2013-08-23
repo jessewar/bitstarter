@@ -11,3 +11,7 @@ var buttonClick = function() {
     $(this).addClass('active');
   });
 };
+
+// Sets scrollspy to detect position in body and alter navbar "active" accordingly
+// Uses id's of areas on page that are also navbar href targets
+$('body').scrollspy({target: '.navbar'});
