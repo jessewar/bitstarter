@@ -7,7 +7,7 @@ app.engine('html', cons.swig);
 app.set('view engine', 'html');
 app.set('views', __dirname + "/views");
 
-var buffer = fs.readFileSync(__dirname + "/views/index.html");
+var buffer = fs.readFileSync("index.html");
 var str = buffer.toString();
 
 var contentBuffer = fs.readFileSync("content-page.html");
