@@ -1,8 +1,13 @@
-var express = require('express');
-var fs = require('fs');
-var app = express.createServer(express.logger());
+var express = require('express'),
+    fs = require('fs'),
+    app = express(),
+    cons = require('consolidate');
 
-var buffer = fs.readFileSync("index.html");
+app.engine('html', cons.swig);
+app.set('view engine', 'html');
+app.set('views', __dirname + "/views");
+
+var buffer = fs.readFileSync(__dirname + "/views/index.html");
 var str = buffer.toString();
 
 var contentBuffer = fs.readFileSync("content-page.html");
@@ -19,6 +24,8 @@ app.get('/', function(request, response) {
 // load content page
 app.get('/content', function(request, response) {
     response.send(contentStr);
+
+    
 });
 
 var port = process.env.PORT || 8080;
