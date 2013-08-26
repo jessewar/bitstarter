@@ -1,8 +1,6 @@
-var express = require('express'),
-    fs = require('fs'),
-    app = express(),
-    cons = require('consolidate');
-
+var express = require('express');
+var fs = require('fs');
+var app = express.createServer(express.logger());
 
 var buffer = fs.readFileSync("index.html");
 var str = buffer.toString();
@@ -21,8 +19,6 @@ app.get('/', function(request, response) {
 // load content page
 app.get('/content', function(request, response) {
     response.send(contentStr);
-
-    
 });
 
 var port = process.env.PORT || 8080;
