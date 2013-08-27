@@ -5,7 +5,7 @@ var cons = require('consolidate');
 var MongoClient = require('mongodb').MongoClient;
 var Server = require('mongodb').Server;
 
-var mongoclient = new MongoClient(new Server("ip-10-243-46-189", 27017));
+var mongoclient = new MongoClient(new Server("ip-10-243-46-189", 28017));
 var db = mongoclient.db('bitstarter');
 
 app.engine('html', cons.swig);  // tell express to use swig as the html templating engine
