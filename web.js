@@ -28,7 +28,7 @@ app.get('/', function(request, response) {
 // load content page
 app.get('/content', function(request, response) {
     // Find one document in our collection
-    db.collection('farm').findOne({}, function(err, doc) {
+    db.collection('farm').findOne({'name':'MyFarm2'}, function(err, doc) {
 	if(err) throw err;
 
 	response.render('content-page.html', doc);
@@ -38,7 +38,7 @@ app.get('/content', function(request, response) {
 var port = process.env.PORT || 8080;
 app.listen(port, function() {
   console.log("Listening on " + port);
-  
+
   // connect to MongoDB server on my EC2 instance
   mongoclient.open(function(err, mongoclient) {
     if(err) throw err;
