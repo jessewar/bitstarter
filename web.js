@@ -4,15 +4,18 @@ var app = express();
 var cons = require('consolidate');
 var MongoClient = require('mongodb').MongoClient;
 var Server = require('mongodb').Server;
-
+var Db = require('mongodb').Db;
 
 
 var textUri = "mongodb://heroku_app17145481:iq6hv1i7kuknq833rcoome4q57@ds041198.mongolab.com:41198/heroku_app17145481";
 // var uri = new MongoClientURI(textUri);
 // var mongoclient = new MongoClient(uri);
 
-var mongoclient = new MongoClient(new Server("10.226.119.215", 41198));
-var db = mongoclient.db('bitstarter');
+var server = new Server("10.226.119.215", 41198);
+var db = new Db('heroku_app17145481', server);
+
+//var mongoclient = new MongoClient(new Server("10.226.119.215", 41198), {auto_reconnect: true});
+// var db = mongoclient.db('bitstarter');
 
 
 app.engine('html', cons.swig);  // tell express to use swig as the html templating engine
@@ -48,10 +51,12 @@ app.listen(port, function() {
   console.log("Listening on " + port);
 
   // connect to MongoDB server on my EC2 instance
-  mongoclient.open(function(err, client) {
+  db.open(function(err, client) {
     if(err) throw err;
 
-    client.authenticate("jessewar", "lemonlime1");
+    client.authenticate("jessewar", "lemonlime1", function(err, success) {
+
+    });
 
     console.log('Listening to DB');
   });
