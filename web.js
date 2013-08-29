@@ -4,7 +4,7 @@ var app = express();
 var cons = require('consolidate');
 var Server = require('mongodb').Server;
 var Db = require('mongodb').Db;
-var dbmanager = require('./dbmanager.js');
+var dbmanager = require(__dirname + '/dbmanager.js');
 
 var server = new Server("ds041198.mongolab.com", 41198); // ip address 10.226.119.215
 var db = new Db('heroku_app17145481', server);
@@ -41,13 +41,6 @@ app.listen(port, function() {
   console.log("Listening on " + port);
 
   dbmanager.init();
-  // db.open(function(err, client) {
-  //   if(err) throw err;
-
-  //   client.authenticate("jessewar", "lemonlime1", function(err, success) {
-  //     // fill with something later	
-  //   });
-
-  //   console.log('Listening to DB');
-  // });
 });
+
+

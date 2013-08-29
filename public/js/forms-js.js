@@ -1,3 +1,5 @@
+// need to require dbmanager.js
+
 $(document).ready(function() {
   submitClicked();
 });
@@ -33,17 +35,7 @@ function getFarmTypes() {
 }
 
 function putIntoDb(farmName, farmTypes) {
-  var server = new Server("ds041198.mongolab.com", 41198); // ip address 10.226.119.215
-  $('#test3').text("hello world");
-  var db = new Db('heroku_app17145481', server);
-
-
-  db.open(function(err, client) {
-    if(err) throw err;
-
-    client.authenticate("jessewar", "lemonlime1", function(err, success) {
-      var docs = db.farm.find();
-      $('#test2').text(JSON.stringify(docs));
-    });
-  });
+//  dbmanager.init();
+//  var docs = dbmanager.getDb.collection('farm').find();
+//  $('#test2').text(JSON.stringify(docs));
 }

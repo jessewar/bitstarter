@@ -4,7 +4,8 @@ var Db = require('mongodb').Db;
 var database;
 
 function init() {
-  var server = new Server("ds041198.mongolab.com", 41198); // ip address 10.226.119.215
+  var options = {safe: true};
+  var server = new Server("ds041198.mongolab.com", 41198, options); // ip address 10.226.119.215
   var db = new Db('heroku_app17145481', server);
   
   // db and n_db are references to the exact same thing (I think)
