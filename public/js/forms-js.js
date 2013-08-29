@@ -33,19 +33,17 @@ function getFarmTypes() {
 }
 
 function putIntoDb(farmName, farmTypes) {
-  console.log('got here1 ');
   var server = new Server("ds041198.mongolab.com", 41198); // ip address 10.226.119.215
-  console.log('got here');
+  $('#test3').text("hello world");
   var db = new Db('heroku_app17145481', server);
+
 
   db.open(function(err, client) {
     if(err) throw err;
-    console.log("connected again!");
 
-  client.authenticate("jessewar", "lemonlime1", function(err, success) {
-    var docs = db.farm.find();
-    $('#test2').text(JSON.stringify(docs));
-  });
-
+    client.authenticate("jessewar", "lemonlime1", function(err, success) {
+      var docs = db.farm.find();
+      $('#test2').text(JSON.stringify(docs));
+    });
   });
 }
