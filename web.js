@@ -31,6 +31,11 @@ app.get('/content', function(request, response) {
     });
 });
 
+// load forms page
+app.get('/forms', function(request, response) {
+  response.render('forms.html');
+});
+
 var port = process.env.PORT || 8080;
 app.listen(port, function() {
   console.log("Listening on " + port);
