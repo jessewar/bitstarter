@@ -1,5 +1,3 @@
-// need to require dbmanager.js
-
 $(document).ready(function() {
   submitClicked();
 });
@@ -34,8 +32,7 @@ function getFarmTypes() {
   return farmTypes;
 }
 
-function putIntoDb(farmName, farmTypes) {
-//  dbmanager.init();
-//  var docs = dbmanager.getDb.collection('farm').find();
-//  $('#test2').text(JSON.stringify(docs));
-}
+// function putIntoDb(farmName, farmTypes) {
+//   var docs = dbmanager.getDb().collection('farm').find();
+//   $('#test3').text(JSON.stringify(docs));
+// }

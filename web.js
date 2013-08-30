@@ -1,46 +1,11 @@
-var express = require('express');
-var fs = require('fs');
-var app = express();
-var cons = require('consolidate');
-var Server = require('mongodb').Server;
-var Db = require('mongodb').Db;
 var dbmanager = require(__dirname + '/dbmanager.js');
+var server = require(__dirname + '/server.js');
+var express = require('express');
+var app = express();
+var requestHandlers = require(__dirname + '/requestHandlers.js');
 
-var server = new Server("ds041198.mongolab.com", 41198); // ip address 10.226.119.215
-var db = new Db('heroku_app17145481', server);
+requestHandlers.setHandlers(app) // define the request handlers for the app
 
-app.engine('html', cons.swig);  // tell express to use swig as the html templating engine
-app.set('views', __dirname);  // tell express to treat files in main directory as views
+server.start(app); // open connection to the web server
 
-// load anything in the /public directory as static content on the server
-app.use(express.static(__dirname + '/public'));
-
-// load home page
-app.get('/', function(request, response) {
-  response.render('index.html');
-});
-
-// load content page
-app.get('/content', function(request, response) {
-    
-    // Find one document in our collection
-    dbmanager.getDb().collection('farm').findOne({'name': 'AnotherFarm'}, function(err, doc) {
-	if(err) throw err;
-
-	response.render('content-page.html', doc);
-    });
-});
-
-// load forms page
-app.get('/forms', function(request, response) {
-  response.render('forms.html');
-});
-
-var port = process.env.PORT || 8080;
-app.listen(port, function() {
-  console.log("Listening on " + port);
-
-  dbmanager.init();
-});
-
-
+dbmanager.init(); // open the connection to the db, only needs to happen once
