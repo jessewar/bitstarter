@@ -7,7 +7,18 @@ function submitClicked() {
     var farmName = getFarmName();
     var farmTypes = getFarmTypes();
 
-    putIntoDb(farmName, farmTypes);
+    var doc = {'farmName': farmName,
+	       'farmTypes': farmTypes}
+
+    $.ajax({
+	'url': '/forms',
+	'type': 'POST',
+	'data': doc,
+	'dataType': 'json',
+	'success': function (data) {
+	    console.log('success');
+	}
+    });
   });
 }
 

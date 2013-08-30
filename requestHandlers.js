@@ -18,6 +18,14 @@ function setHandlers(app) {
   // load forms page
   app.get('/forms', function(request, response) {
     response.render('forms.html');
+    console.log("form page request made");
+  });
+
+  // handles forms post data
+  app.post('/forms', function(request, response) {
+    console.log("made it to post area");
+    console.log(request.body);
+    response.send(request.body);
   });
 }
 

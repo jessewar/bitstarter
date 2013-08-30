@@ -4,8 +4,8 @@ var express = require('express');
 var app = express();
 var requestHandlers = require(__dirname + '/requestHandlers.js');
 
-requestHandlers.setHandlers(app) // define the request handlers for the app
-
 server.start(app); // open connection to the web server
+
+requestHandlers.setHandlers(app) // define the request handlers for the app
 
 dbmanager.init(); // open the connection to the db, only needs to happen once
