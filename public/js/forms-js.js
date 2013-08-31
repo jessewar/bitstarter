@@ -1,6 +1,12 @@
 $(document).ready(function() {
+  promptForPassword();  
+
   submitClicked();
 });
+
+function promptForPassword() {
+  
+}
 
 function submitClicked() {
   $('.btn').on('click', function() {
@@ -9,16 +15,19 @@ function submitClicked() {
 
     var doc = {'farmName': farmName,
 	       'farmTypes': farmTypes}
-
     $.ajax({
 	'url': '/forms',
 	'type': 'POST',
-	'data': doc,
 	'dataType': 'json',
-	'success': function (data) {
-	    console.log('success');
+	'data': doc,
+	'success': function (data, textStatus, jqXRH) {
+	    alert("Your page was successfully revised");
+	},
+	'error': function (data) {
+	  alert("There was an error!");
 	}
     });
+
   });
 }
 
