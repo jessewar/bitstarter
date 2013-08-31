@@ -1,11 +1,35 @@
 $(document).ready(function() {
+  configureAjax();
   promptForPassword();  
-
   submitClicked();
 });
 
+// add detailed error messages if an AJAX request fails
+function configureAjax() {
+  // ajax default error handling function
+  $.ajaxSetup({
+    error: function(jqXHR, exception) {
+      if (jqXHR.status === 0) {
+	alert('Not connect.\n Verify Network.');
+      } else if (jqXHR.status == 404) {
+	alert('Requested page not found. [404]');
+      } else if (jqXHR.status == 500) {
+	alert('Internal Server Error [500].');
+      } else if (exception === 'parsererror') {
+	alert('Requested JSON parse failed.');
+      } else if (exception === 'timeout') {
+	alert('Time out error.');
+      } else if (exception === 'abort') {
+	alert('Ajax request aborted.');
+      } else {
+	alert('Uncaught Error.\n' + jqXHR.responseText);
+      }
+    }
+  });
+}
+
 function promptForPassword() {
-  
+
 }
 
 function submitClicked() {
@@ -16,36 +40,14 @@ function submitClicked() {
     var doc = {'farmName': farmName,
 	       'farmTypes': farmTypes}
 
-    // jQuery Ajax Error Handling Function
-    $.ajaxSetup({
-      error: function(jqXHR, exception) {
-	if (jqXHR.status === 0) {
-	  alert('Not connect.\n Verify Network.');
-	} else if (jqXHR.status == 404) {
-	  alert('Requested page not found. [404]');
-	} else if (jqXHR.status == 500) {
-	  alert('Internal Server Error [500].');
-	} else if (exception === 'parsererror') {
-	  alert('Requested JSON parse failed.');
-	} else if (exception === 'timeout') {
-	  alert('Time out error.');
-	} else if (exception === 'abort') {
-	  alert('Ajax request aborted.');
-	} else {
-	  alert('Uncaught Error.\n' + jqXHR.responseText);
-	}
-      }
-    });
-
+    // make a post request with the data contained in the forms
     $.ajax({
 	'url': '/forms',
 	'type': 'POST',
 	'dataType': 'json',
 	'data': doc
     })
-     .done(function() { alert("success"); })
-     .fail(function() { alert("error"); })
-     .always(function() { alert("complete"); })
+     .done(function() { alert("success: your page has been modified"); }); // alert the user that the modifications have been made
    });
 }
 
@@ -70,7 +72,3 @@ function getFarmTypes() {
   return farmTypes;
 }
 
-// function putIntoDb(farmName, farmTypes) {
-//   var docs = dbmanager.getDb().collection('farm').find();
-//   $('#test3').text(JSON.stringify(docs));
-// }

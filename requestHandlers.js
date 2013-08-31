@@ -28,8 +28,8 @@ function setHandlers(app) {
     var db = dbmanager.getDb();
     db.collection('farm').insert(request.body, function(err, data) {
       if(err) throw err;
-
       console.log("successfully inserted: " + JSON.stringify(data));
+      response.end(); // needed to tell client that the POST was successful
     });
   });
 }
