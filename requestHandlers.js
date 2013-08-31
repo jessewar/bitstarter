@@ -26,8 +26,10 @@ function setHandlers(app) {
     console.log(request.body);
     
     var db = dbmanager.getDb();
-    db.collection('farm').insert(request.body, function() {
-      console.log("insert successful");
+    db.collection('farm').insert(request.body, function(err, data) {
+      if(err) throw err;
+
+      console.log("successfully inserted: " + JSON.stringify(data));
     });
   });
 }

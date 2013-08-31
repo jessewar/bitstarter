@@ -15,20 +15,38 @@ function submitClicked() {
 
     var doc = {'farmName': farmName,
 	       'farmTypes': farmTypes}
+
+    // jQuery Ajax Error Handling Function
+    $.ajaxSetup({
+      error: function(jqXHR, exception) {
+	if (jqXHR.status === 0) {
+	  alert('Not connect.\n Verify Network.');
+	} else if (jqXHR.status == 404) {
+	  alert('Requested page not found. [404]');
+	} else if (jqXHR.status == 500) {
+	  alert('Internal Server Error [500].');
+	} else if (exception === 'parsererror') {
+	  alert('Requested JSON parse failed.');
+	} else if (exception === 'timeout') {
+	  alert('Time out error.');
+	} else if (exception === 'abort') {
+	  alert('Ajax request aborted.');
+	} else {
+	  alert('Uncaught Error.\n' + jqXHR.responseText);
+	}
+      }
+    });
+
     $.ajax({
 	'url': '/forms',
 	'type': 'POST',
 	'dataType': 'json',
-	'data': doc,
-	'success': function (data, textStatus, jqXRH) {
-	    alert("Your page was successfully revised");
-	},
-	'error': function (data) {
-	  alert("There was an error!");
-	}
-    });
-
-  });
+	'data': doc
+    })
+     .done(function() { alert("success"); })
+     .fail(function() { alert("error"); })
+     .always(function() { alert("complete"); })
+   });
 }
 
 // returns the name of the farm as a string
