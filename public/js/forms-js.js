@@ -29,7 +29,7 @@ function configureAjax() {
 }
 
 function promptForPassword() {
-
+  Apprise('Please enter passcode:', { input: true });
 }
 
 function submitClicked() {
@@ -38,7 +38,7 @@ function submitClicked() {
     var farmTypes = getFarmTypes();
 
     var doc = {'farmName': farmName,
-	       'farmTypes': farmTypes}
+	       'farmTypes': farmTypes};
 
     // make a post request with the data contained in the forms
     $.ajax({
