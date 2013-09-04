@@ -45,7 +45,7 @@ function promptForPassword() {
 		     'dataType': 'json', // the datatype of the data sent back from the server to the client
 		     'data': doc
 		 })
-		  .done(function(e) { alert("post successful" + JSON.stringify(e)); });
+		  .done(function(doc) { alert("post successful" + JSON.stringify(doc)); });
 
 		Apprise('close');
 	      },

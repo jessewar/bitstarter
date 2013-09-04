@@ -35,11 +35,16 @@ function setHandlers(app) {
   // handles password post data
   app.post('/forms', function(request, response) {
     console.log(request.body);
-    var password = request.body.password;
-    console.log(password);
+    var userPassword = request.body.password;
+    console.log(userPassword);
 
-    response.send(request.body);
-    response.end();
+    var db = dbmanager.getDb();
+    db.collection('farm').findOne({password: userPassword}, function(err, doc) {
+      if(err) throw err;
+
+      console.log(doc);
+      response.send(doc);
+    });
   });
 }
 
