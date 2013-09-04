@@ -30,6 +30,20 @@ function configureAjax() {
 
 // create message box asking the user for a passcode
 function promptForPassword() {
+
+  // function to be called upon completing ajax post request
+  var helper = function(doc) {
+    if (doc === null) {
+      alert("password is invalid, please try again");
+    } else {
+      var name = doc.farmName;
+      $('#farm-name-textbox').val(name);
+
+      alert("post successful" + JSON.stringify(doc));
+      Apprise('close');
+    }
+  };
+
   var options = {
       animation: 700, // Animation speed
       buttons: {
@@ -45,9 +59,9 @@ function promptForPassword() {
 		     'dataType': 'json', // the datatype of the data sent back from the server to the client
 		     'data': doc
 		 })
-		  .done(function(doc) { alert("post successful" + JSON.stringify(doc)); });
+		  .done(helper);
 
-		Apprise('close');
+//		Apprise('close');
 	      },
 	      className: null, // Custom class name(s)
 	      id: 'confirm', // Element ID
