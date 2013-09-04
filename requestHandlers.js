@@ -24,7 +24,6 @@ function setHandlers(app) {
   // handles forms page input post data
   app.post('/content', function(request, response) {
     console.log(request.body);
-
     var db = dbmanager.getDb();
     db.collection('farm').insert(request.body, function(err, data) {
       if(err) throw err;
@@ -33,8 +32,13 @@ function setHandlers(app) {
     });
   });
 
+  // handles password post data
   app.post('/forms', function(request, response) {
     console.log(request.body);
+    var password = request.body.password;
+    console.log(password);
+
+    response.send(request.body);
     response.end();
   });
 }

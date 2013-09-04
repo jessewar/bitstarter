@@ -42,11 +42,11 @@ function promptForPassword() {
 		 $.ajax({
 		     'url': '/forms',
 		     'type': 'POST',
-		     'dataType': 'json',
+		     'dataType': 'json', // the datatype of the data sent back from the server to the client
 		     'data': doc
 		 })
-		  .done(function() { alert("post successful"); }); 
-		
+		  .done(function(e) { alert("post successful" + JSON.stringify(e)); });
+
 		Apprise('close');
 	      },
 	      className: null, // Custom class name(s)
