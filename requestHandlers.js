@@ -21,16 +21,21 @@ function setHandlers(app) {
     console.log("form page request made");
   });
 
-  // handles forms post data
-  app.post('/forms', function(request, response) {
+  // handles forms page input post data
+  app.post('/content', function(request, response) {
     console.log(request.body);
-    
+
     var db = dbmanager.getDb();
     db.collection('farm').insert(request.body, function(err, data) {
       if(err) throw err;
       console.log("successfully inserted: " + JSON.stringify(data));
       response.end(); // needed to tell client that the POST was successful
     });
+  });
+
+  app.post('/forms', function(request, response) {
+    console.log(request.body);
+    response.end();
   });
 }
 

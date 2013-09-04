@@ -1,6 +1,6 @@
 $(document).ready(function() {
   configureAjax();
-  promptForPassword();  
+  promptForPassword();
   submitClicked();
 });
 
@@ -28,10 +28,40 @@ function configureAjax() {
   });
 }
 
+// create message box asking the user for a passcode
 function promptForPassword() {
-  Apprise('Please enter passcode:', { input: true });
+  var options = {
+      animation: 700, // Animation speed
+      buttons: {
+	  confirm: {
+	      action: function(e) {
+		var input = e.input;
+		var doc = { 'password': input };
+		$('#test3').text(input);
+		 // make a post request with the data contained in the forms
+		 $.ajax({
+		     'url': '/forms',
+		     'type': 'POST',
+		     'dataType': 'json',
+		     'data': doc
+		 })
+		  .done(function() { alert("post successful"); }); 
+		
+		Apprise('close');
+	      },
+	      className: null, // Custom class name(s)
+	      id: 'confirm', // Element ID
+	      text: 'Submit', // Button text
+	      }
+	  },
+      input: true, // require input dialog
+      override: true, // Override browser navigation while Apprise is visible
+  };
+
+  Apprise('Please enter passcode:', options);
 }
 
+// create a POST request with the form data when the submit button is pressed
 function submitClicked() {
   $('.btn').on('click', function() {
     var farmName = getFarmName();
@@ -42,7 +72,7 @@ function submitClicked() {
 
     // make a post request with the data contained in the forms
     $.ajax({
-	'url': '/forms',
+	'url': '/content',
 	'type': 'POST',
 	'dataType': 'json',
 	'data': doc
@@ -71,4 +101,3 @@ function getFarmTypes() {
   $('#test').text(farmTypes.toString());
   return farmTypes;
 }
-
