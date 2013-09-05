@@ -36,8 +36,17 @@ function promptForPassword() {
     if (doc === null) {
       alert("password is invalid, please try again");
     } else {
+      // get the pieces of the document
       var name = doc.farmName;
+      var types = doc.farmTypes;
+
+      // fill in the name textbox
       $('#farm-name-textbox').val(name);
+
+      // check the appropriate checkboxes
+      for (var i = 0; i < types.length; i++) {
+	$('#' + types[i]).prop('checked', true);
+      }
 
       alert("post successful" + JSON.stringify(doc));
       Apprise('close');
@@ -60,10 +69,8 @@ function promptForPassword() {
 		     'data': doc
 		 })
 		  .done(helper);
-
-//		Apprise('close');
 	      },
-	      className: null, // Custom class name(s)
+	      className: 'password', // Custom class name(s)
 	      id: 'confirm', // Element ID
 	      text: 'Submit', // Button text
 	      }
@@ -98,7 +105,6 @@ function submitClicked() {
 // returns the name of the farm as a string
 function getFarmName() {
   var farmName = $('#farm-name-textbox').val();
-  $('#test2').text(farmName);
 
   return farmName;
 }
@@ -109,9 +115,8 @@ function getFarmTypes() {
 
   var farmTypes = [];
   for (var i = 0; i < arr.length; i++) {
-    farmTypes[i] = arr[i].name;
+    farmTypes[i] = arr[i].id;
   }
 
-  $('#test').text(farmTypes.toString());
   return farmTypes;
 }
