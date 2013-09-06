@@ -8,12 +8,13 @@ function setHandlers(app) {
 
   // load content page
   app.get('/content', function(request, response) {
-      // Find one document in our collection
-      dbmanager.getDb().collection('farm').findOne({}, function(err, doc) {
-	  if(err) throw err;
-	  response.render('content-page.html', doc);
-      });
+    // Find one document in our collection
+    dbmanager.getDb().collection('farm').findOne({}, function(err, doc) {
+      if(err) throw err;
+      response.render('content-page.html', doc);
+    });
   });
+
 
   // load forms page
   app.get('/forms', function(request, response) {
@@ -46,6 +47,25 @@ function setHandlers(app) {
       response.send(doc);
     });
   });
+
+  // load any particular content page
+  app.get('/*', function(request, response) {
+    var pageName = request.params[0];
+    var db = dbmanager.getDb();
+    db.collection('farm').findOne({'farmName': pageName}, function(err, doc) {
+      if(err) throw err;
+      
+      if (doc === null) {
+	response.send("Invalid content page");
+      } else {
+	console.log(doc);
+	response.render('content-page.html', doc);
+      }
+    });
+
+    console.log(pageName);
+    console.log(typeof pageName);
+  });    
 }
 
 exports.setHandlers = setHandlers;
