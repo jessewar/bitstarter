@@ -15,7 +15,6 @@ function setHandlers(app) {
     });
   });
 
-
   // load forms page
   app.get('/forms', function(request, response) {
     response.render('forms.html');
@@ -26,7 +25,8 @@ function setHandlers(app) {
   app.post('/content', function(request, response) {
     console.log(request.body);
     var db = dbmanager.getDb();
-    db.collection('farm').insert(request.body, function(err, data) {
+    var name = request.body.farmName;
+    db.collection('farm').update({farmName: name}, request.body, {upsert: true}, function(err, data) {
       if(err) throw err;
       console.log("successfully inserted: " + JSON.stringify(data));
       response.end(); // needed to tell client that the POST was successful
@@ -35,9 +35,8 @@ function setHandlers(app) {
 
   // handles password post data
   app.post('/forms', function(request, response) {
-    console.log(request.body);
     var userPassword = request.body.password;
-    console.log(userPassword);
+    console.log("password was: " + userPassword);
 
     var db = dbmanager.getDb();
     db.collection('farm').findOne({password: userPassword}, function(err, doc) {
@@ -50,11 +49,10 @@ function setHandlers(app) {
 
   // load any particular content page
   app.get('/*', function(request, response) {
-    var pageName = request.params[0];
+    var pageName = request.params[0];  // the string that corressponds to the "*"
     var db = dbmanager.getDb();
     db.collection('farm').findOne({'farmName': pageName}, function(err, doc) {
       if(err) throw err;
-      
       if (doc === null) {
 	response.send("Invalid content page");
       } else {
@@ -65,7 +63,7 @@ function setHandlers(app) {
 
     console.log(pageName);
     console.log(typeof pageName);
-  });    
+  });
 }
 
 exports.setHandlers = setHandlers;

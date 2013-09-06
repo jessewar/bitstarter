@@ -30,7 +30,6 @@ function configureAjax() {
 
 // create message box asking the user for a passcode
 function promptForPassword() {
-
   // function to be called upon completing ajax post request
   var helper = function(doc) {
     if (doc === null) {
@@ -43,6 +42,7 @@ function promptForPassword() {
       // fill in the name textbox
       $('#farm-name-textbox').val(name);
 
+      // TODO: uncheck all boxes prior to doing this. If modify one page, press back, then enter different password last modifcations show up
       // check the appropriate checkboxes
       for (var i = 0; i < types.length; i++) {
 	$('#' + types[i]).prop('checked', true);
@@ -95,10 +95,13 @@ function submitClicked() {
     $.ajax({
 	'url': '/content',
 	'type': 'POST',
-	'dataType': 'json',
 	'data': doc
     })
-     .done(function() { alert("success: your page has been modified"); }); // alert the user that the modifications have been made
+     .done(function() { if (confirm("Success: your page has been modified\n\n Click ok to be redirected to your page")) {
+	 // redirects user to the related (newly modified) content page if he clicks "ok"
+	 // does nothing if presses cancel
+	 window.location = "/" + farmName;  // redirect to the content page related to this farm
+      }});
    });
 }
 
