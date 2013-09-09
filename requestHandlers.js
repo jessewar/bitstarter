@@ -25,11 +25,23 @@ function setHandlers(app) {
   app.post('/content', function(request, response) {
     console.log(request.body);
     var db = dbmanager.getDb();
-    var name = request.body.farmName;
-    db.collection('farm').update({farmName: name}, request.body, {upsert: true}, function(err, data) {
+    var formData = request.body;
+    var name = formData.farmName;
+
+    // grabs the password associated with farmName and adds it back into the new form data so that it is
+    // not lost when the db is updated (bc password is not included on the forms page)
+    db.collection('farm').findOne({farmName: name}, function(err, data) {
       if(err) throw err;
-      console.log("successfully inserted: " + JSON.stringify(data));
-      response.end(); // needed to tell client that the POST was successful
+      formData.password = data.password;  // add the password to the new form data that will be input into the db
+
+      // look for a db entry with a farmName value of "name"
+      // if one does not exist, insert one along with the other values within request.body
+      // if one does exist, update it's attribute values to those contained in request.body
+      db.collection('farm').update({farmName: name}, formData, {upsert: true}, function(err, data) {
+	if(err) throw err;
+	console.log("successfully inserted: " + JSON.stringify(data));
+	response.end(); // needed to tell client that the POST was successful
+      });
     });
   });
 
