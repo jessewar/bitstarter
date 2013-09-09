@@ -60,13 +60,13 @@ function setHandlers(app) {
   });
 
   // load any particular content page
-  app.get('/*', function(request, response) {
+  app.get('/*', function(request, response, next) {
     var pageName = request.params[0];  // the string that corressponds to the "*"
     var db = dbmanager.getDb();
     db.collection('farm').findOne({'farmName': pageName}, function(err, doc) {
       if(err) throw err;
       if (doc === null) {
-	response.send("Invalid content page");
+	next(Error("invalid content page"));  // lets the errorHandler function of server.js handle the error
       } else {
 	console.log(doc);
 	response.render('content-page.html', doc);

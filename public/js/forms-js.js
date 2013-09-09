@@ -40,7 +40,7 @@ function promptForPassword() {
 	    var types = doc.farmTypes;
 
 	    // fill in the name textbox
-	    $('#farm-name-textbox').val(name);
+	    $('#farm-name-textbox').text(name);
 
 	    // TODO: uncheck boxes prior to doing this. If modify one page, press back, then enter different password last modifcations show up
 	    // check the appropriate checkboxes
@@ -56,25 +56,24 @@ function promptForPassword() {
     var options = {
 	animation: 700, // Animation speed
 	buttons: {
-            confirm: {
+	    confirm: {
 		action: function(e) {
-                    var input = e.input;
-                    var doc = { 'password': input };
-                    $('#test3').text(input);
-                    // make a post request with the data contained in the forms
-                    $.ajax({
+		    var input = e.input;
+		    var doc = { 'password': input };
+		    // make a post request with the data contained in the forms
+		    $.ajax({
 			'url': '/forms',
 			'type': 'POST',
 			'dataType': 'json', // the datatype of the data sent back from the server to the client
 			'data': doc
-                    })
+		    })
 			.done(helper);
 		},
 		className: 'password', // Custom class name(s)
 		id: 'confirm', // Element ID
 		text: 'Submit', // Button text
-            }
-        },
+	    }
+	},
 	input: true, // require input dialog
 	override: true, // override browser navigation while Apprise is visible
     };
@@ -93,9 +92,9 @@ function submitClicked() {
 
 	// make a post request with the data contained in the forms
 	$.ajax({
-            'url': '/content',
-            'type': 'POST',
-            'data': doc
+	    'url': '/content',
+	    'type': 'POST',
+	    'data': doc
 	})
 	    .done(function() { if (confirm("Success: your page has been modified\n\n Click ok to be redirected to your page")) {
 		// redirects user to the related (newly modified) content page if he clicks "ok"
@@ -107,7 +106,7 @@ function submitClicked() {
 
 // returns the name of the farm as a string
 function getFarmName() {
-    var farmName = $('#farm-name-textbox').val();
+    var farmName = $('#farm-name-textbox').text();
 
     return farmName;
 }
