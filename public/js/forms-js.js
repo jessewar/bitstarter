@@ -1,8 +1,7 @@
 $(document).ready(function() {
     configureAjax();
     promptForPassword();
-    setCheckboxFunctionality();
-    submitClicked();
+    setCheckboxListener();
 });
 
 // add detailed error messages if an AJAX request fails
@@ -85,26 +84,24 @@ function promptForPassword() {
 }
 
 // create a POST request with the form data when the submit button is pressed
-function submitClicked() {
-    $('.btn').on('click', function() {
-	var farmName = getFarmName();
-	var farmTypes = getFarmTypes();
+function submitData() {
+    var farmName = getFarmName();
+    var farmTypes = getFarmTypes();
 
-	var doc = {'farmName': farmName,
-		   'farmTypes': farmTypes};
+    var doc = {'farmName': farmName,
+	       'farmTypes': farmTypes};
 
-	// make a post request with the data contained in the forms
-	$.ajax({
-	    'url': '/content',
-	    'type': 'POST',
-	    'data': doc
-	})
-	    .done(function() { if (confirm("Success: your page has been modified\n\n Click ok to be redirected to your page")) {
-		// redirects user to the related (newly modified) content page if he clicks "ok"
-		// does nothing if presses cancel
-		window.location = "/" + farmName;  // redirect to the content page related to this farm
-	    }});
-    });
+    // make a post request with the data contained in the forms
+    $.ajax({
+	'url': '/content',
+	'type': 'POST',
+	'data': doc
+    })
+	.done(function() { if (confirm("Success: your page has been modified\n\n Click ok to be redirected to your page")) {
+	    // redirects user to the related (newly modified) content page if he clicks "ok"
+	    // does nothing if presses cancel
+	    window.location = "/" + farmName;  // redirect to the content page related to this farm
+	}});
 }
 
 // returns the name of the farm as a string
@@ -127,14 +124,22 @@ function getFarmTypes() {
 }
 
 // display hidden checkboxes on checked and hide them on unchecked
-function setCheckboxFunctionality() {
+function setCheckboxListener() {
     $('.farm-type-checkbox').on('click', function() {
 	var checkedBoxId = $(this).attr('id');
-	var hiddenBox = $("#" + checkedBoxId + "-hidden"); // use id of checked box to get id of hidden boxes
-	if ($(this).attr('checked')) {  // check if the checkbox is checked
-	    hiddenBox.removeClass('hidden');
+	var hiddenBoxId = "#" + checkedBoxId + "-hidden"; // use id of checked box to get id of hidden boxes
+	if ($(this).attr('checked')) {
+	    // reveal the inner checkboxes if outer is checked
+	    $(hiddenBoxId).removeClass('hidden');
 	} else {
-	    hiddenBox.addClass('hidden');
+	    // make all inner checkboxes unchecked if the outer checkbox gets unchecked
+	    var innerBoxes = $(hiddenBoxId + " input");
+	    $.each(innerBoxes, function(index, value) {
+		$(value).prop('checked', false);
+	    });
+
+	    // hide the inner checkboxes if outer is unchecked
+	    $(hiddenBoxId).addClass('hidden');
 	}
     });
 }
