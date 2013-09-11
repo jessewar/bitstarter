@@ -46,7 +46,9 @@ function promptForPassword() {
 	    // TODO: uncheck boxes prior to doing this. If modify one page, press back, then enter different password last modifcations show up
 	    // check the appropriate checkboxes
 	    for (var i = 0; i < types.length; i++) {
-		$('#' + types[i]).prop('checked', true);
+		var farmType = types[i];
+		$('#' + farmType).prop('checked', true);
+		$('#' + farmType + '-hidden').removeClass('hidden');
 	    }
 
 	    alert("post successful" + JSON.stringify(doc));
@@ -129,7 +131,7 @@ function setCheckboxFunctionality() {
     $('.farm-type-checkbox').on('click', function() {
 	var checkedBoxId = $(this).attr('id');
 	var hiddenBox = $("#" + checkedBoxId + "-hidden"); // use id of checked box to get id of hidden boxes
-	if (hiddenBox.hasClass('hidden')) {
+	if ($(this).attr('checked')) {  // check if the checkbox is checked
 	    hiddenBox.removeClass('hidden');
 	} else {
 	    hiddenBox.addClass('hidden');

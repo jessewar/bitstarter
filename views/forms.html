@@ -39,12 +39,13 @@
       <div class="container-fluid" id="checkboxes">
         <h4 class="form-heading">Products available:</h4>
         <hr class="half-hr">
+        <!-- farm type meat group -->
         <div class="farm-type-group">
           <label class="checkbox">
             <input class="farm-type-checkbox" type="checkbox" id="meat">
             Meat
           </label>
-          <div class="hidden" id="meat-hidden">
+          <div class="hidden-checkboxes hidden" id="meat-hidden">
             <label>Please select the boxes that apply:</label>
             <label class="checkbox inline">
               <input type="checkbox" id="grass-fed">
@@ -56,14 +57,30 @@
             </label>
           </div>
         </div>
-        <label class="checkbox">
-          <input type="checkbox" id="dairy">
-          Dairy
-        </label>
+        <!-- farm type dairy group -->
+        <div class="farm-type-group">
+          <label class="checkbox">
+            <input class="farm-type-checkbox" type="checkbox" id="dairy">
+            Dairy
+          </label>
+          <div class="hidden-checkboxes hidden" id="dairy-hidden">
+            <label>Please select the boxes that apply:</label>
+            <label class="checkbox inline">
+              <input type="checkbox" id="grass-fed">
+              Grass-fed
+            </label>
+            <label class="checkbox inline">
+              <input type="checkbox" id="grass-fed">
+              Grass-finished
+            </label>
+          </div>
+        </div>
+        <!-- farm type produce group -->
         <label class="checkbox">
           <input type="checkbox" id="produce">
           Produce
         </label>
+        <!-- farm type other group -->
         <label class="checkbox">
           <input type="checkbox" id="other">
           Other
