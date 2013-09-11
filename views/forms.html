@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <!-- BootstrapCND links v2.3.2 -->
     <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css"
-	  rel="stylesheet">
+          rel="stylesheet">
     <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js">
 
     </script>
@@ -39,10 +39,23 @@
       <div class="container-fluid" id="checkboxes">
         <h4 class="form-heading">Products available:</h4>
         <hr class="half-hr">
-        <label class="checkbox">
-          <input type="checkbox" id="meat">
-          Meat
-        </label>
+        <div class="farm-type-group">
+          <label class="checkbox">
+            <input class="farm-type-checkbox" type="checkbox" id="meat">
+            Meat
+          </label>
+          <div class="hidden" id="meat-hidden">
+            <label>Please select the boxes that apply:</label>
+            <label class="checkbox inline">
+              <input type="checkbox" id="grass-fed">
+              Grass-fed
+            </label>
+            <label class="checkbox inline">
+              <input type="checkbox" id="grass-fed">
+              Grass-finished
+            </label>
+          </div>
+        </div>
         <label class="checkbox">
           <input type="checkbox" id="dairy">
           Dairy

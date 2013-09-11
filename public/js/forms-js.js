@@ -1,6 +1,7 @@
 $(document).ready(function() {
     configureAjax();
     promptForPassword();
+    setCheckboxFunctionality();
     submitClicked();
 });
 
@@ -121,4 +122,17 @@ function getFarmTypes() {
     }
 
     return farmTypes;
+}
+
+// display hidden checkboxes on checked and hide them on unchecked
+function setCheckboxFunctionality() {
+    $('.farm-type-checkbox').on('click', function() {
+	var checkedBoxId = $(this).attr('id');
+	var hiddenBox = $("#" + checkedBoxId + "-hidden"); // use id of checked box to get id of hidden boxes
+	if (hiddenBox.hasClass('hidden')) {
+	    hiddenBox.removeClass('hidden');
+	} else {
+	    hiddenBox.addClass('hidden');
+	}
+    });
 }
